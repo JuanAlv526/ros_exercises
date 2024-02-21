@@ -1,0 +1,15 @@
+<launch>
+
+    <node
+        pkg="ros_exercises"
+        name="static_tf_cam_publisher"
+        exec="static_tf_cam_publisher"
+        output="screen"></node>
+
+    <node
+        pkg="ros_exercises"
+        name="base_link_tf_pub"
+        exec="base_link_tf_pub"
+        output="screen"></node>
+
+</launch>
