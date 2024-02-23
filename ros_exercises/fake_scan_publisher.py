@@ -27,7 +27,7 @@ class ComplexPublisher(Node):
         super().__init__('fake_scan_publisher')
 
         self.declare_parameter('fsp_topic', 'fake_scan')
-        self.declare_parameter('fsp_rate', 0.05)
+        self.declare_parameter('fsp_rate', 20)
         self.declare_parameter('angle_min', -2/3 * math.pi)
         self.declare_parameter('angle_max', 2/3 * math.pi)
         self.declare_parameter('range_min', 1.0)
@@ -45,7 +45,7 @@ class ComplexPublisher(Node):
 
         self.publisher_ = self.create_publisher(LaserScan, self.fsp_topic, 10)
         self.range_test_publisher = self.create_publisher(Float32, 'range_test', 10)
-        timer_period = self.fsp_rate  # seconds
+        timer_period = 1/self.fsp_rate  # seconds
         self.timer = self.create_timer(timer_period, self.timer_callback)
         self.i = 0
 
